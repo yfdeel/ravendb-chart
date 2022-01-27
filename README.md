@@ -31,7 +31,7 @@ You'll also need a Kubernetes Cluster with Helm/Tiller (I'm using Kubernetes v1.
         - `persistence.storage` - `Values.yaml` Defaults storage to 1 GB, the value in `values.my-example.yaml` is 20 GB
         - `resources` - Tweak CPU and Memory requests and limits to whatever makes sense for your environment
 3. With Kubernetes configured and pointing to your target cluster, run the [scripts/create-secret.ps1](./scripts/create-secret.ps1) script and pass it the path to your server certificate PFX.  The script will prompt you for your PFX password and create a Kubernetes secret with both the PFX file contents and the password.
-4. From a command prompt in this directory, run `helm install ./ -f ./{YOUR VALUES FILE YAML} -n ravendb;`
+4. From a command prompt in this directory, run `helm install <RELEASE_NAME> ./ -f ./{YOUR VALUES FILE YAML} -n ravendb;`
 5. If you make changes and need to deploy the changes, run `helm upgrade ravendb ./ -f ./{YOUR VALUES FILE YAML} --recreate-pods;` (recreate-pods is optional depending on the change, but will ensure that all pods get recreated/restarted)
 
 ## Warnings/Gotchas/Limitations
